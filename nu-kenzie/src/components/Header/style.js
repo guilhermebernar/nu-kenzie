@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
     overflow: hidden;
     background-color: #F8F9FA;
-    padding: 20px 10px;
+    padding: 2vh 4vh;
     box-shadow: 0px 4px 32px -12px rgba(0, 0, 0, 0.25);
 
 `

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FormAddTransacao, Descricao, Grid, CampoInput, Selecao } from "./style";
+import { FormAddTransacao, Descricao, Grid, CampoInput1, CampoInput2, Selecao, ButtonPink, LabelText, LabelComment } from "./style";
 
 const Form = ({ listTransactions, setListTransactions }) => {
   const [description, setDescription] = useState();
@@ -9,30 +9,30 @@ const Form = ({ listTransactions, setListTransactions }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    setListTransactions(...listTransactions, {
+    setListTransactions([...listTransactions, {
       description: description,
+      type: type||"entrada",
       value: value,
-      type: type,
-    });
+    }]);
   };
 
   return (
     <div>
       <FormAddTransacao onSubmit={(event) => handleSubmit(event)}>
         <Descricao>
-          <label htmlFor="descricao">Descrição</label>
-          <CampoInput
+          <LabelText htmlFor="descricao">Descrição</LabelText>
+          <CampoInput1
             name="descricao"
             type="text"
             onChange={(event) => setDescription(event.target.value)}
           />
-          <span>Ex. Compra de roupas</span>
+          <LabelComment>Ex. Compra de roupas</LabelComment>
         </Descricao>
 
         <Grid>
           <Descricao>
-            <label htmlFor="valor">Valor</label>
-            <CampoInput
+            <LabelText htmlFor="valor">Valor</LabelText>
+            <CampoInput2
               name="valor"
               type="number"
               onChange={(event) => setValue(event.target.value)}
@@ -40,7 +40,7 @@ const Form = ({ listTransactions, setListTransactions }) => {
           </Descricao>
           
           <Descricao>
-            <label htmlFor="tipo">Tipo</label>
+            <LabelText htmlFor="tipo">Tipo</LabelText>
             <Selecao name="tipo" onChange={(event) => setType(event.target.value)}>
               <option value="entrada">Entrada</option>
               <option value="saida">Saída</option>
@@ -48,7 +48,7 @@ const Form = ({ listTransactions, setListTransactions }) => {
           </Descricao>
         </Grid>
 
-        <button type="submit">Enviar</button>
+        <ButtonPink type="submit">Enviar</ButtonPink>
       </FormAddTransacao>
     </div>
   );

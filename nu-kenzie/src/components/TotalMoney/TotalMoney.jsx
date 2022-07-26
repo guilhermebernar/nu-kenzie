@@ -1,17 +1,23 @@
+import {Conteiner, Total, Comment, IntroValor, Valor} from "./style"
+
 const TotalMoney = ({ listTransactions }) => {
   const total = () => {
-    return listTransactions.reduce((p, c) => p + Number(c.value), 0).toFixed(2).toString();
+    console.log(listTransactions)
+    return listTransactions.reduce((p, c) => p + Number(c.value), 0);
   }; 
 
   return (
-    <>
+    <Conteiner>
       {total() > 0 && (
-        <div>
-          <span>Valor total:</span>
-          <span>R$ {total()}</span>
-        </div>
+        <Total>
+          <IntroValor>Valor total:</IntroValor>
+          <Valor>{total().toLocaleString("pt-br",{style:"currency", currency:"BRL"})}</Valor>
+        </Total>
       )}
-    </>
+      <div>
+          <Comment>O valor se refere ao seu saldo</Comment>
+      </div>
+    </Conteiner>
   );
 };
 
