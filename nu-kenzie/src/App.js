@@ -1,23 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {Main, ContainerForm} from "./style";
+import { useState } from "react";
+import Form from "./components/Form/Form";
+import Header from "./components/Header/Header";
+import List from "./components/List/List";
+import TotalMoney from "./components/TotalMoney/TotalMoney";
+import HomePage from "./components/HomePage/HomePage";
 
 function App() {
+  const [listTransactions, setListTransactions] = useState([
+    { description: "Salário recebido", type: "entrada", value: 2500 },
+    { description: "Conta de luz", type: "saída", value: -150 },
+  ]);
+  const [statusHomePg, setStatusHomePg] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    {statusHomePg?
+      (
+      <>
+        <div>
+          <HomePage setStatusHomePg={setStatusHomePg}/>
+        </div>
+      </>
+      )
+      :
+      (      
+      <>
+        <Header setStatusHomePg={setStatusHomePg}/>
+        <Main>
+          <ContainerForm>
+            <Form
+              listTransactions={listTransactions}
+              setListTransactions={setListTransactions} />
+            <TotalMoney listTransactions={listTransactions} />
+          </ContainerForm>
+          <div>
+            <List
+              listTransactions={listTransactions}
+              setListTransactions={setListTransactions} />
+          </div>
+        </Main>
+      </>
+      )
+      
+    }
+
     </div>
   );
 }
