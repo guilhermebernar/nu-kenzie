@@ -24,3 +24,25 @@ export const ContainerList = styled.div`
     }
 
 `
+export const CardVazio1 = styled.div`
+    background: #edededda;
+    border-radius: 4px;
+    margin-bottom: 3vh;
+    padding:2vh;
+    height: 4vh;
+`
+export const CardVazio2 = styled.div`
+    background: #f8f9fab3;
+    border-radius: 4px;
+    margin-bottom: 3vh;
+    padding:2vh;
+    height: 4vh;
+`
+
+export const CardVazio3 = styled.div`
+    background: #f8f9fa75;
+    border-radius: 4px;
+    margin-bottom: 3vh;
+    padding:2vh;
+    height: 4vh;
+`

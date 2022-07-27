@@ -1,5 +1,5 @@
 import "./App.css";
-import {Main, ContainerForm, ContainerList} from "./style";
+import {Main, ContainerForm, ContainerList, CardVazio1, CardVazio2, CardVazio3} from "./style";
 import { useState } from "react";
 import Form from "./components/Form/Form";
 import Header from "./components/Header/Header";
@@ -8,10 +8,7 @@ import TotalMoney from "./components/TotalMoney/TotalMoney";
 import HomePage from "./components/HomePage/HomePage";
 
 function App() {
-  const [listTransactions, setListTransactions] = useState([
-    { description: "Salário recebido", type: "entrada", value: 2500 },
-    { description: "Conta de luz", type: "saída", value: -150 },
-  ]);
+  const [listTransactions, setListTransactions] = useState([]);
   const [statusHomePg, setStatusHomePg] = useState(true);
 
   return (
@@ -34,9 +31,20 @@ function App() {
             <TotalMoney listTransactions={listTransactions} />
           </ContainerForm>
           <ContainerList>
-            <List
+            {listTransactions.length===0?
+            (
+              <>
+              <CardVazio1/>
+              <CardVazio2/>
+              <CardVazio3/>
+              </>
+            ):
+            (
+              <List
               listTransactions={listTransactions}
               setListTransactions={setListTransactions} />
+            )
+            }
           </ContainerList>
         </Main>
       </>

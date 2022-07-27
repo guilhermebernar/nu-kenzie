@@ -2,6 +2,11 @@ import {CardTransacao, Conteiner, ImgExcluir , ButtonExcluir, DecricaoTitlest, V
 import Img from "./ButtonTrashexcluirCard.png"
 
 const Card = ({ transaction, index }) => {
+  
+  const valor = () =>{
+    return Number(transaction.value)
+  }
+
   return <CardTransacao key={index}>
     <Conteiner>
       <Infos>
@@ -9,7 +14,7 @@ const Card = ({ transaction, index }) => {
               {transaction.description}
           </DecricaoTitlest>
           <Valor>
-              <span>{transaction.value.toLocaleString("pt-br",{style:"currency", currency:"BRL"})}</span>
+              {valor().toLocaleString("pt-br",{style:"currency", currency:"BRL"})}
           </Valor>
       </Infos>
       <ButtonExcluir>

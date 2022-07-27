@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const LogoBranca = styled.img`
     width: 10vh;
-    margin-bottom: ;
+    margin-bottom: 1vh;
 `
 
 export const MainApp = styled.main`
@@ -14,24 +14,42 @@ export const MainApp = styled.main`
 export const Container = styled.div`
     display: grid;
     grid-template-columns: 0.6fr 1.4fr;
-    margin-top:20vh;
+    margin-top: 20vh;
     margin: auto;
     width: 50%;
+    @media(max-width: 600px){
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+    }
 
 `
 export const Art = styled.img`
-    width: 100%;
+    height: 75%;
+    @media(max-width: 600px){
+        height: 30vh;
+    }
 `
 export const Div1 = styled.div`
     display: flex;
     flex-direction: column;
     padding: 3vh;
     margin-top: 30vh;
+    @media(max-width: 600px){
+        margin-top: 25vh;
+        padding: 0;
+    }
 `
 
 export const Div2 = styled.div`
     padding: 3vh;
     margin-top: 18vh;
+    @media(max-width: 600px){
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin-top: 7vh;
+    }
 `
 export const FraseDestaque = styled.h1`
     font-family: 'Nunito';
