@@ -7,9 +7,9 @@ const TotalMoney = ({ listTransactions }) => {
 
   return (
     <>
-      {total() > 0 ? (
+      {total() !== 0 ? (
         <Conteiner>
-          {total() > 0 && (
+          {total() !== 0 && (
             <Total>
               <IntroValor>Valor total:</IntroValor>
               <Valor>

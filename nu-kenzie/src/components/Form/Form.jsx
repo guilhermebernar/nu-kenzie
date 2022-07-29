@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FormAddTransacao, Descricao, Grid, CampoInput1, CampoInput2, Selecao, ButtonPink, LabelText, LabelComment } from "./style";
 
-const Form = ({ listTransactions, setListTransactions }) => {
+const Form = ({ listTransactions, setListTransactions, setFilterList }) => {
   const [description, setDescription] = useState();
   const [value, setValue] = useState();
   const [type, setType] = useState("entrada");
@@ -10,6 +10,12 @@ const Form = ({ listTransactions, setListTransactions }) => {
     event.preventDefault();
 
     setListTransactions([...listTransactions, {
+      description: description,
+      type: type,
+      value: value,
+    }]);
+    
+    setFilterList([...listTransactions, {
       description: description,
       type: type,
       value: value,

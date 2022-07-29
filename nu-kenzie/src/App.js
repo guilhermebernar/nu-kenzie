@@ -9,7 +9,10 @@ import HomePage from "./components/HomePage/HomePage";
 
 function App() {
   const [listTransactions, setListTransactions] = useState([]);
+  const [filterList, setFilterList] = useState([]);
   const [statusHomePg, setStatusHomePg] = useState(true);
+  const [filterEntrada, setFilterEntrada] = useState(false)
+  const [filterSaida, setFilterSaida] = useState(false)
 
   return (
     <div className="App">
@@ -26,6 +29,7 @@ function App() {
         <Main>
           <ContainerForm>
             <Form
+              setFilterList={setFilterList}
               listTransactions={listTransactions}
               setListTransactions={setListTransactions} />
             <TotalMoney listTransactions={listTransactions} />
@@ -41,6 +45,8 @@ function App() {
             ):
             (
               <List
+              setFilterList={setFilterList}
+              filterList={filterList}
               listTransactions={listTransactions}
               setListTransactions={setListTransactions} />
             )
