@@ -2,7 +2,7 @@ import { Conteiner, Total, Comment, IntroValor, Valor } from "./style";
 
 const TotalMoney = ({ listTransactions }) => {
   const total = () => {
-    return listTransactions.reduce((p, c) => p + Number(c.value), 0);
+    return listTransactions.reduce((p, c) => p + Number(c.type==="entrada"?c.value:-c.value), 0);
   };
 
   return (

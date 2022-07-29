@@ -4,14 +4,14 @@ import { FormAddTransacao, Descricao, Grid, CampoInput1, CampoInput2, Selecao, B
 const Form = ({ listTransactions, setListTransactions }) => {
   const [description, setDescription] = useState();
   const [value, setValue] = useState();
-  const [type, setType] = useState();
+  const [type, setType] = useState("entrada");
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     setListTransactions([...listTransactions, {
       description: description,
-      type: type||"entrada",
+      type: type,
       value: value,
     }]);
   };
